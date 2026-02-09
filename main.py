@@ -1,4 +1,17 @@
 import requests
+import os
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
+
+try:
+    r = requests.post(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+        data={"chat_id": CHANNEL_ID, "text": "✅ Telegram test successful"}
+    )
+    print("Telegram test response:", r.text)
+except Exception as e:
+    print("Telegram test failed:", e)import requests
 from datetime import datetime, timezone
 import time
 import random
