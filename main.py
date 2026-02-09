@@ -145,3 +145,12 @@ while True:
     except Exception as e:
         print("Error:", e)
         time.sleep(15)
+import requests
+
+requests.post(
+    f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+    data={
+        "chat_id": CHANNEL_ID,
+        "text": "✅ Private channel test successful"
+    }
+)
